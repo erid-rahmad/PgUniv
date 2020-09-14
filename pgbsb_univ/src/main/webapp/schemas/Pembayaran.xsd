@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Pembayaran" xmlns="http://www.example.org/Pembayaran" elementFormDefault="qualified">
+
+<xs:element name="Pembayaran" type="Pembayaran"/>
+	<xs:complexType name="Pembayaran">
+		<xs:sequence>
+			<xs:element name="id_record_pembayaran" type="xs:string"/>
+			<xs:element name="id_record_tagihan" type="xs:string"/>
+			<xs:element name="waktu_transaksi" type="xs:string"/>
+			<xs:element name="nomor_pembayaran" type="xs:string"/>
+			<xs:element name="kode_unik_transaksi_bank" type="xs:string"/>
+			<xs:element name="waktu_transaksi_bank" type="xs:string"/>
+			<xs:element name="kode_bank" type="xs:string"/>
+			<xs:element name="kanal_bayar_bank" type="xs:string"/>
+			<xs:element name="kode_terminal_bank" type="xs:string"/>
+			<xs:element name="total_nilai_pembayaran" type="xs:string"/>
+			<xs:element name="status_pembayaran" type="xs:string"/>
+			<xs:element name="id_record_rekonsiliasi" type="xs:string"/>
+			<xs:element name="id_record_settlement" type="xs:string"/>
+			<xs:element name="billref" type="xs:string"/>
+			<xs:element name="metode_pembayaran" type="xs:string"/>
+			<xs:element name="catatan" type="xs:string"/>
+			<xs:element name="key_val_1" type="xs:string"/>
+			<xs:element name="key_val_2" type="xs:string"/>
+			<xs:element name="key_val_3" type="xs:string"/>
+			<xs:element name="key_val_4" type="xs:string"/>
+			<xs:element name="key_val_5" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+</xs:schema>

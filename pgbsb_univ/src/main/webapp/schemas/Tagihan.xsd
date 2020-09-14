@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org" xmlns="http://www.example.org"
+	elementFormDefault="qualified">
+
+
+	<xs:element name="Tagihan" type="Tagihan" />
+	<xs:complexType name="Tagihan">
+		<xs:sequence>
+			<xs:element name="id_record_tagihan" type="xs:string" />
+			<xs:element name="nomor_pembayaran" type="xs:string" />
+			<xs:element name="nama" type="xs:string" />
+			<xs:element name="kode_fakultas" type="xs:string" />
+			<xs:element name="nama_fakultas" type="xs:string" />
+			<xs:element name="kode_prodi" type="xs:string" />
+			<xs:element name="nama_prodi" type="xs:string" />
+			<xs:element name="kode_periode" type="xs:string" />
+			<xs:element name="nama_periode" type="xs:string" />
+			<xs:element name="is_tagihan_aktif" type="xs:string" />
+			<xs:element name="waktu_berlaku" type="xs:string" />
+			<xs:element name="waktu_berakhir" type="xs:string" />
+			<xs:element name="strata" type="xs:string" />
+			<xs:element name="angkatan" type="xs:string" />
+			<xs:element name="urutan_antrian" type="xs:string" />
+			<xs:element name="total_nilai" type="xs:string" />
+			<xs:element name="nomor_induk" type="xs:string" />
+			<xs:element name="pembayaran_atau_voucher" type="xs:string" />
+			<xs:element name="voucher_nama" type="xs:string" />
+			<xs:element name="voucher_nama_fakultas" type="xs:string" />
+			<xs:element name="voucher_nama_prodi" type="xs:string" />
+			<xs:element name="voucher_nama_periode" type="xs:string" />
+			<xs:element name="label_jenis_biaya" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+</xs:schema>

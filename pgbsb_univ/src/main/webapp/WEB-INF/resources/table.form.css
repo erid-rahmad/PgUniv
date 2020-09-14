@@ -1,0 +1,77 @@
+/*
+ * Table styles
+ */
+ #tabledisplayForm{
+	margin: 0 auto;
+	padding: 0;
+	width: 98%;
+	text-align:center;
+ }
+ #inputFormDisplay{
+	clear: both;
+	position:absolute;
+	top:10%;
+    left:30%;
+	background-color: #DADADA;
+	border: 1px solid #CCCCCC;
+	display:none;
+	margin: 0 auto;
+	padding : 5px;
+	overflow: auto;
+ }
+  #inputFilterDisplay{
+	clear: both;
+	border: 1px solid #CCCCCC;
+	padding : 5px;
+	float:right;
+	margin: 0px 15px 10px 10px;
+ }
+  #inputFormDisplayVisible{
+	clear: both;
+	padding : 5px;
+ }
+ #divMessage{
+	color: red;
+	float: right;
+	margin: 10px 40px 10px 40px;
+	font-size: 12px;
+	font-weight: bold;
+	border: 1px dotted blue;
+	padding: 5px;
+ }
+ .textError{
+	color: red;
+	font-size: 10px;
+	padding-left: 6px;
+ }
+ #imgCloseInputForm
+ {
+	height: 20px;
+	position: absolute; 
+	top: 0; 
+	right: 0;
+ }
+ #headerInputForm{
+	text-align: center;
+	margin: -2px 15px 12px 0px;
+	color: white;
+	font-size: 12px;
+	background-color: #12498E;
+ }
+  #headerFilterForm{
+	text-align: center;
+	margin: -2px -2px 0px 0px;
+	color: white;
+	font-size: 12px;
+	background-color: #12498E;
+ }
+   
+ #subHeaderInputForm{
+	margin: 12px 15px 12px 0px;
+	color: black;
+	font-size: 11px;
+	background-color: orange;
+	padding-left: 15px;
+	width: 180px;
+	height: 15px;
+ }

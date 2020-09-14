@@ -1,0 +1,101 @@
+.jqueryDataTable{
+  background: #fff;
+  border-right: 0;
+  clear: both;
+  color: #333;
+  margin-bottom: 10px;
+  width: 100%;
+}
+th {
+  border: 0;
+  border-bottom: 2px solid #555;
+  text-align: center;
+  padding: 4px;
+}
+table tr td {
+  background: #fff;
+  padding: 6px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px dotted #DDD;
+  border-left: 1px dotted #DDD;
+}
+.formIntable{
+	float:left;
+	background: #fff;
+	padding: 4px;
+	text-align: left;
+	vertical-align: middle;
+}
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+table tr:nth-child(2n) td {
+  background: #f5f5f5;
+}
+.gridLink{
+	font-weight: normal?;
+	padding: 2px 6px 2px 6px;
+	background: #A9BDD6;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f1f1d4), to(#A9BDD6));
+	background-image: -moz-linear-gradient(top, #f1f1d4, #A9BDD6);
+	color: #333;
+	border: 1px solid #1D5293;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 4px;
+	text-decoration: none;
+	text-shadow: #fff 0px 1px 0px;
+	min-width: 0;
+	font-weight: bold;
+}
+.divSubmitID{
+	text-align: right;
+	padding: 2px 15px 2px 2px;
+}
+#submitId{
+	font-weight: normal?;
+	/*padding: 2px 6px 2px 6px;*/
+	background: #A9BDD6;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f1f1d4), to(#A9BDD6));
+	background-image: -moz-linear-gradient(top, #f1f1d4, #A9BDD6);
+	color: #333;
+	border: 1px solid #1D5293;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 4px;
+	text-decoration: none;
+	text-shadow: #fff 0px 1px 0px;
+	min-width: 0;
+	/*font-weight: bold;*/
+}
+.pagination{
+  float: right;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: middle;
+  font-size: 12px;
+}
+.divLink{
+  text-align: left;
+  padding: 0px 15px 5px 8px;
+  font-weight: bold;
+  color: #b8ce83;
+  text-decoration: none;
+  font-size: 12px;
+}
+.tdstring{
+	text-align:left;
+}
+.tdnumber{
+	text-align:right;
+}
+.tddate{
+	text-align:center;
+}
+.tdaction{
+	text-align:center;
+}

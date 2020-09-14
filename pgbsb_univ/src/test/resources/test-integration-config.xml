@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:int="http://www.springframework.org/schema/integration"
+	xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- 
+	<int:bridge input-channel="sekayu-outbound-channel" output-channel="test-sekayu-outbound-channel" />
+	
+	<int:channel id="test-sekayu-outbound-channel">
+		<int:queue/>
+	</int:channel>
+	
+	<int:bridge input-channel="mba-outbound-channel" output-channel="test-mba-outbound-channel" />
+	
+	<int:channel id="test-mba-outbound-channel">
+		<int:queue/>
+	</int:channel>
+	
+	<int:bridge input-channel="toboali-outbound-channel" output-channel="test-toboali-outbound-channel" />
+	
+	<int:channel id="test-toboali-outbound-channel">
+		<int:queue/>
+	</int:channel>
+	
+	<int:bridge input-channel="ist-outbound-channel" output-channel="test-ist-outbound-channel" />
+	
+	<int:channel id="test-ist-outbound-channel">
+		<int:queue/>
+	</int:channel>
+	 -->
+	
+</beans>

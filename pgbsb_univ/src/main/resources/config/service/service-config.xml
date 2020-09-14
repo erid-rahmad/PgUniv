@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	    <property name="maxUploadSize" value="50000000"/>
+	</bean>
+	
+	<!-- WSDL Service -->
+	
+	<bean id="messageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory" />
+
+    <bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+        <property name="contextPath" value="h2humplg" />
+    </bean>
+    
+    <bean id="marshaller2" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+        <property name="contextPath" value="id.ac.univpgri_palembang.ws" />
+    </bean>
+    
+    <bean id="webServiceTemplate" class="org.springframework.ws.client.core.WebServiceTemplate">
+        <constructor-arg ref="messageFactory" />
+        <property name="marshaller" ref="marshaller"></property>
+        <property name="unmarshaller" ref="marshaller"></property>
+        <property name="defaultUri" value="${url.wsdl}" />
+		<property name="messageSender">
+             <bean class="com.mpc.pgateway.service.utils.NullHostVerifierHttpsMessageSender"/>
+        </property>
+    </bean>
+    
+    <bean id="webServiceTemplate2" class="org.springframework.ws.client.core.WebServiceTemplate">
+        <constructor-arg ref="messageFactory" />
+        <property name="marshaller" ref="marshaller2"></property>
+        <property name="unmarshaller" ref="marshaller2"></property>
+        <property name="defaultUri" value="${url.wsdl.pgri}" />
+		<property name="messageSender">
+             <bean class="com.mpc.pgateway.service.utils.NullHostVerifierHttpsMessageSender"/>
+        </property>
+    </bean>
+    
+    <bean id="umppRestResource"
+		class="com.mpc.pgateway.service.utils.RestResource">
+		<property name="path" value="${url.umpp.json}" />
+		<property name="timeout" value="${rest.timeout}" />
+	</bean>
+	
+	<bean id="stikesRestResource"
+		class="com.mpc.pgateway.service.utils.RestResource">
+		<property name="path" value="${url.stikes.json}" />
+		<property name="timeout" value="${rest.timeout}" />
+	</bean>
+</beans>

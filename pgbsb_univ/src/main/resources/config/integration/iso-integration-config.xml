@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<bean id="packager" class="org.jpos.iso.packager.ISO87APackager"/>
+	
+	<!-- IST  -->
+	<bean id="istServerchannel" class="org.jpos.iso.channel.ASCIIChannel">
+		<constructor-arg value="${connection.ist.host}"/>
+		<constructor-arg value="${connection.ist.port}"/>
+		<constructor-arg ref="packager"/>
+		<property name="name" value="istChannel"></property>
+	</bean>
+
+	
+	<bean id="istMux" class="org.jpos.iso.ISOMUX">
+		<constructor-arg ref="istServerchannel"/>
+	</bean>
+	
+	<bean id="istServer" class="com.mpc.iso.Gerbang">
+		<constructor-arg ref="istMux"/>
+		<constructor-arg ref="istListener"/>
+		<constructor-arg value="false"/>
+	</bean>
+	
+	<bean id="istListener" class="com.mpc.iso.GerbangListener">
+		<constructor-arg ref="istChannelService"/>
+	</bean>
+	
+	
+	<!-- MDP  -->
+	<bean id="mdpClientChannel" class="org.jpos.iso.channel.ASCIIChannel">
+	 	<constructor-arg ref="packager"/>
+		<constructor-arg>
+			<bean class="java.net.ServerSocket">
+				<constructor-arg value="${connection.bsbuniv.port}"/>
+			</bean>
+		</constructor-arg>
+		<property name="timeout" value="600000"></property>
+		<property name="name" value="BSBUnivChannel_Old"></property>
+	</bean>
+	
+	<bean id="mdpMux" class="org.jpos.iso.ISOMUX">
+		<constructor-arg ref="mdpClientChannel"/>
+	</bean>
+	
+	<bean id="mdpServer" class="com.mpc.iso.Gerbang">
+		<constructor-arg ref="mdpMux"/>
+		<constructor-arg ref="mdpListener"/>
+		<constructor-arg value="false"/>
+	</bean>
+	
+	<bean id="mdpListener" class="com.mpc.iso.GerbangListener">
+		<constructor-arg ref="mdpChannelService"/>
+	</bean> 
+</beans>

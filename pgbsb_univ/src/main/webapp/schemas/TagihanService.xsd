@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.example.org/TagihanService" xmlns:tagihan="http://www.example.org" targetNamespace="http://www.example.org/TagihanService" elementFormDefault="qualified">
+ <xsd:import namespace="http://www.example.org" schemaLocation="Tagihan.xsd"/>  
+      <xsd:element name="RequestTagihan">  
+           <xsd:complexType>  
+                <xsd:sequence>  
+                     <xsd:element name="id_record_tagihan" type="xsd:string"/>  
+                </xsd:sequence>  
+           </xsd:complexType>  
+      </xsd:element>  
+      <xsd:element name="ResponseTagihan">  
+           <xsd:complexType>  
+                <xsd:sequence>  
+                     <xsd:element name="DetailTagihan" type="tagihan:Tagihan"/>  
+                </xsd:sequence>  
+           </xsd:complexType>  
+      </xsd:element>  
+
+</xsd:schema>

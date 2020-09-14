@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<import resource="classpath:config/integration/integration-config.xml"/>
+	<import resource="classpath:config/integration/aspect-config.xml"/>
+	<import resource="classpath:config/service/service-config.xml"/>
+	<import resource="classpath:config/service/scheduler-config.xml"/>
+	
+	<context:component-scan base-package="com.mpc.pgateway" >
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	
+	<context:property-placeholder location="classpath*:config/**/*.properties "/>
+	
+	<jpa:repositories base-package="com.mpc.pgateway.repository" />
+	
+	<bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+	  <property name="location" value="classpath:config/config.properties"/>
+	</bean>
+	
+	<bean id="pcodeProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+	  <property name="location" value="classpath:config/pcode.properties"/>
+	</bean>
+	
+	<bean id="channelProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+	  <property name="location" value="classpath:config/channel.properties"/>
+	</bean>
+	
+	<bean id="rcProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+	  <property name="location" value="classpath:config/rc.properties"/>
+	</bean>
+	
+	<!-- creator print -->
+	<bean id="creator" class="com.mpc.pgateway.service.utils.Creator"/>
+</beans>

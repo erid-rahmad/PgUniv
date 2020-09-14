@@ -1,0 +1,154 @@
+#
+# An unexpected error has been detected by Java Runtime Environment:
+#
+#  Internal Error (434C41535326494C453041525345520E4350500132), pid=9128, tid=5144
+#
+# Java VM: Java HotSpot(TM) Client VM (1.6.0-b105 mixed mode, sharing)
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x023d8000):  JavaThread "main" [_thread_in_vm, id=5144]
+
+Stack: [0x00760000,0x007b0000)
+[error occurred during error reporting, step 110, id 0xc0000005]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  com.sun.jmx.mbeanserver.MXBeanIntrospector.getMBeanAttributeInfo(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)Ljavax/management/MBeanAttributeInfo;+155
+j  com.sun.jmx.mbeanserver.MXBeanIntrospector.getMBeanAttributeInfo(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Ljavax/management/MBeanAttributeInfo;+10
+j  com.sun.jmx.mbeanserver.MBeanIntrospector$MBeanInfoMaker.visitAttribute(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V+7
+j  com.sun.jmx.mbeanserver.MBeanAnalyzer.visit(Lcom/sun/jmx/mbeanserver/MBeanAnalyzer$MBeanVisitor;)V+69
+j  com.sun.jmx.mbeanserver.MBeanIntrospector.makeInterfaceMBeanInfo(Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MBeanAnalyzer;)Ljavax/management/MBeanInfo;+12
+j  com.sun.jmx.mbeanserver.MBeanIntrospector.getPerInterface(Ljava/lang/Class;)Lcom/sun/jmx/mbeanserver/PerInterface;+54
+j  com.sun.jmx.mbeanserver.MBeanSupport.<init>(Ljava/lang/Object;Ljava/lang/Class;)V+86
+j  com.sun.jmx.mbeanserver.MXBeanSupport.<init>(Ljava/lang/Object;Ljava/lang/Class;)V+3
+j  javax.management.StandardMBean.construct(Ljava/lang/Object;Ljava/lang/Class;ZZ)V+47
+j  javax.management.StandardMBean.<init>(Ljava/lang/Object;Ljava/lang/Class;Z)V+9
+j  javax.management.StandardEmitterMBean.<init>(Ljava/lang/Object;Ljava/lang/Class;ZLjavax/management/NotificationEmitter;)V+4
+j  sun.management.ManagementFactory.addMXBean(Ljavax/management/MBeanServer;Ljava/lang/Object;Ljava/lang/String;Ljavax/management/NotificationEmitter;)V+27
+j  sun.management.ManagementFactory.createPlatformMBeanServer()Ljavax/management/MBeanServer;+26
+j  java.lang.management.ManagementFactory.getPlatformMBeanServer()Ljavax/management/MBeanServer;+29
+j  org.apache.tomcat.util.modeler.Registry.getMBeanServer()Ljavax/management/MBeanServer;+82
+j  org.apache.tomcat.util.modeler.Registry.registerComponent(Ljava/lang/Object;Ljavax/management/ObjectName;Ljava/lang/String;)V+102
+j  org.apache.catalina.core.StandardEngine.init()V+128
+j  org.apache.catalina.core.StandardEngine.start()V+16
+j  org.apache.catalina.startup.Embedded.start()V+104
+j  org.codehaus.mojo.tomcat.AbstractRunMojo.startContainer()V+440
+j  org.codehaus.mojo.tomcat.AbstractRunMojo.execute()V+71
+j  org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/plugin/MojoExecution;)V+166
+j  org.apache.maven.lifecycle.internal.MojoExecutor.execute(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/plugin/MojoExecution;Lorg/apache/maven/lifecycle/internal/ProjectIndex;Lorg/apache/maven/lifecycle/internal/DependencyContext;)V+215
+j  org.apache.maven.lifecycle.internal.MojoExecutor.execute(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/plugin/MojoExecution;Lorg/apache/maven/lifecycle/internal/ProjectIndex;Lorg/apache/maven/lifecycle/internal/DependencyContext;Lorg/apache/maven/lifecycle/internal/PhaseRecorder;)V+6
+j  org.apache.maven.lifecycle.internal.MojoExecutor.execute(Lorg/apache/maven/execution/MavenSession;Ljava/util/List;Lorg/apache/maven/lifecycle/internal/ProjectIndex;)V+60
+j  org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/lifecycle/internal/ReactorContext;Lorg/apache/maven/project/MavenProject;Lorg/apache/maven/lifecycle/internal/TaskSegment;)V+151
+j  org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/lifecycle/internal/ReactorContext;Lorg/apache/maven/project/MavenProject;Lorg/apache/maven/lifecycle/internal/TaskSegment;)V+7
+j  org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/lifecycle/internal/ReactorContext;Lorg/apache/maven/lifecycle/internal/ProjectBuildList;Ljava/util/List;Lorg/apache/maven/lifecycle/internal/ReactorBuildStatus;)V+77
+j  org.apache.maven.lifecycle.internal.LifecycleStarter.execute(Lorg/apache/maven/execution/MavenSession;)V+336
+j  org.apache.maven.DefaultMaven.doExecute(Lorg/apache/maven/execution/MavenExecutionRequest;)Lorg/apache/maven/execution/MavenExecutionResult;+557
+j  org.apache.maven.DefaultMaven.execute(Lorg/apache/maven/execution/MavenExecutionRequest;)Lorg/apache/maven/execution/MavenExecutionResult;+11
+j  org.apache.maven.cli.MavenCli.execute(Lorg/apache/maven/cli/MavenCli$CliRequest;)I+19
+j  org.apache.maven.cli.MavenCli.doMain(Lorg/apache/maven/cli/MavenCli$CliRequest;)I+61
+j  org.apache.maven.cli.MavenCli.main([Ljava/lang/String;Lorg/codehaus/plexus/classworlds/ClassWorld;)I+18
+v  ~StubRoutines::call_stub
+j  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0
+j  sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+87
+j  sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+161
+j  org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced([Ljava/lang/String;)V+45
+j  org.codehaus.plexus.classworlds.launcher.Launcher.launch([Ljava/lang/String;)V+2
+j  org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode([Ljava/lang/String;)I+101
+j  org.codehaus.plexus.classworlds.launcher.Launcher.main([Ljava/lang/String;)V+1
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x04465800 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=13452]
+  0x04460800 JavaThread "CompilerThread0" daemon [_thread_blocked, id=13220]
+  0x0445f800 JavaThread "Attach Listener" daemon [_thread_blocked, id=6548]
+  0x0445e800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=10540]
+  0x04456c00 JavaThread "Finalizer" daemon [_thread_blocked, id=6252]
+  0x04452000 JavaThread "Reference Handler" daemon [_thread_blocked, id=11924]
+=>0x023d8000 JavaThread "main" [_thread_in_vm, id=5144]
+
+Other Threads:
+  0x04448800 VMThread [id=5332]
+  0x04471c00 WatcherThread [id=11520]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 1024K, used 367K [0x24410000, 0x24520000, 0x248f0000)
+  eden space 960K,  31% used [0x24410000, 0x2445bfc0, 0x24500000)
+  from space 64K, 100% used [0x24500000, 0x24510000, 0x24510000)
+  to   space 64K,   0% used [0x24510000, 0x24510000, 0x24520000)
+ tenured generation   total 12372K, used 11195K [0x248f0000, 0x25505000, 0x28410000)
+   the space 12372K,  90% used [0x248f0000, 0x253dee48, 0x253df000, 0x25505000)
+ compacting perm gen  total 12288K, used 11038K [0x28410000, 0x29010000, 0x2c410000)
+   the space 12288K,  89% used [0x28410000, 0x28ed7a30, 0x28ed7c00, 0x29010000)
+    ro space 8192K,  66% used [0x2c410000, 0x2c959920, 0x2c959a00, 0x2cc10000)
+    rw space 12288K,  52% used [0x2cc10000, 0x2d256130, 0x2d256200, 0x2d810000)
+
+Dynamic libraries:
+0x00400000 - 0x00423000 	C:\Program Files (x86)\Java\jdk1.6.0\bin\javaw.exe
+0x77450000 - 0x775de000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x741e0000 - 0x742b0000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x75120000 - 0x752e2000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x75380000 - 0x753f7000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x74520000 - 0x745dd000 	C:\WINDOWS\System32\msvcrt.dll
+0x74aa0000 - 0x74ae1000 	C:\WINDOWS\System32\sechost.dll
+0x742b0000 - 0x74370000 	C:\WINDOWS\System32\RPCRT4.dll
+0x73f20000 - 0x73f40000 	C:\WINDOWS\System32\SspiCli.dll
+0x73f10000 - 0x73f1a000 	C:\WINDOWS\System32\CRYPTBASE.dll
+0x752f0000 - 0x75347000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x74e20000 - 0x74f5c000 	C:\WINDOWS\System32\USER32.dll
+0x75350000 - 0x75366000 	C:\WINDOWS\System32\win32u.dll
+0x760d0000 - 0x760f1000 	C:\WINDOWS\System32\GDI32.dll
+0x74370000 - 0x744c9000 	C:\WINDOWS\System32\gdi32full.dll
+0x73ff0000 - 0x74069000 	C:\WINDOWS\System32\msvcp_win.dll
+0x74b00000 - 0x74c18000 	C:\WINDOWS\System32\ucrtbase.dll
+0x75000000 - 0x75025000 	C:\WINDOWS\System32\IMM32.DLL
+0x7c340000 - 0x7c396000 	C:\Program Files (x86)\Java\jdk1.6.0\jre\bin\msvcr71.dll
+0x6d7c0000 - 0x6da07000 	C:\Program Files (x86)\Java\jdk1.6.0\jre\bin\client\jvm.dll
+0x72a70000 - 0x72a94000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x72a40000 - 0x72a63000 	C:\WINDOWS\SYSTEM32\winmmbase.dll
+0x74f60000 - 0x74f99000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x73270000 - 0x73303000 	C:\WINDOWS\system32\apphelp.dll
+0x6d310000 - 0x6d318000 	C:\Program Files (x86)\Java\jdk1.6.0\jre\bin\hpi.dll
+0x74c90000 - 0x74c96000 	C:\WINDOWS\System32\PSAPI.DLL
+0x6d770000 - 0x6d77c000 	C:\Program Files (x86)\Java\jdk1.6.0\jre\bin\verify.dll
+0x6d3b0000 - 0x6d3cf000 	C:\Program Files (x86)\Java\jdk1.6.0\jre\bin\java.dll
+0x6d7b0000 - 0x6d7bf000 	C:\Program Files (x86)\Java\jdk1.6.0\jre\bin\zip.dll
+0x6d570000 - 0x6d583000 	C:\Program Files (x86)\Java\jdk1.6.0\jre\bin\net.dll
+0x74c20000 - 0x74c87000 	C:\WINDOWS\System32\WS2_32.dll
+0x73620000 - 0x7366e000 	C:\WINDOWS\system32\mswsock.dll
+0x6d590000 - 0x6d599000 	C:\Program Files (x86)\Java\jdk1.6.0\jre\bin\nio.dll
+0x6d560000 - 0x6d569000 	C:\Program Files (x86)\Java\jdk1.6.0\jre\bin\management.dll
+
+VM Arguments:
+jvm_args: -Dmaven.home=EMBEDDED -Dclassworlds.conf=D:\_SOURCE CODE\Workspace Java\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf8254009733175017293.tmp -Dfile.encoding=Cp1252
+java_command: org.codehaus.plexus.classworlds.launcher.Launcher -B tomcat:run
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files (x86)\Java\jdk1.6.0
+PATH=C:/Program Files (x86)/Java/jre7/bin/client;C:/Program Files (x86)/Java/jre7/bin;C:/Program Files (x86)/Java/jre7/lib/i386;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files (x86)\Java\jdk1.6.0\bin;C:\Users\yovi.putra\AppData\Local\Microsoft\WindowsApps;;D:\_SOFTWARE\Programming\IDE Programming\Eclipse Luna\eclipse;
+USERNAME=yovi.putra
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 78 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows NT 6.2 Build 9200 
+
+CPU:total 4 family 6, cmov, cx8, fxsr, mmx, sse, sse2
+
+Memory: 4k page, physical 2097151k(739488k free), swap 4194303k(1039996k free)
+
+vm_info: Java HotSpot(TM) Client VM (1.6.0-b105) for windows-x86, built on Nov 29 2006 00:48:48 by "java_re" with unknown MS VC++:1310
+

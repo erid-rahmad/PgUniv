@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-3.0.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<import resource="classpath:config/integration/iso-integration-config.xml" />
+	
+	<!-- Channel -->
+	<int:channel id="ist-inbound-channel" />
+	<int:channel id="ist-outbound-channel" />
+	
+	<int:channel id="core-inbound-channel" />
+	<int:channel id="core-outbound-channel" />
+	
+	<int:channel id="ist-inbound-router-channel" />
+	<int:channel id="ist-router-default-channel" />
+	
+	<int:channel id="mdp-outbound-channel" />
+
+
+	<!-- Channel adapter  -->
+	<int:outbound-channel-adapter id="istOutBoundChannelAddapter"
+		ref="istChannelService" channel="ist-outbound-channel" />
+	
+	<int:outbound-channel-adapter id="coreOutBoundChannelAdapter"
+		ref="coreChannelService" channel="core-outbound-channel" />
+		
+	<int:outbound-channel-adapter id="mdpOutBoundChannelAddapter"
+		ref="mdpChannelService" channel="mdp-outbound-channel" />
+			
+	<int:logging-channel-adapter id="errorRouteISTRouter"
+		logger-name="errorRouteISTRouter"
+		level="INFO"
+	    log-full-message="true"
+		channel="ist-router-default-channel" />
+	
+			
+	<!-- Router -->
+	<bean id="istRouter" class="com.mpc.middleware.router.MessageRouter" />
+
+	<int:router id="istInBoundRouter" ref="istRouter" method="routeIstInBound"
+		input-channel="ist-inbound-router-channel" /> 
+		
+	<!-- Channel Service Impl -->
+	<bean id="istChannelService" class="com.mpc.middleware.service.impl.ChannelServiceImpl">
+		<property name="sendChannel" ref="ist-inbound-router-channel" />
+		<property name="mux" ref="istMux" />
+	</bean>
+	
+	<bean id="mdpChannelService" class="com.mpc.middleware.service.impl.ChannelServiceImpl">
+		<property name="sendChannel" ref="ist-outbound-channel" />
+		<property name="mux" ref="mdpMux" />
+	</bean>
+	
+	<!-- Channel Service -->
+	<int:gateway id="coreInBoundGateway" service-interface="com.mpc.middleware.service.ChannelService">
+		<int:method name="sendMsg" request-channel="core-inbound-channel" />
+	</int:gateway>
+	
+	<int:gateway id="istInBoundGateway" service-interface="com.mpc.middleware.service.ChannelService">
+		<int:method name="sendMsg" request-channel="ist-inbound-router-channel" />
+	</int:gateway>
+	
+	<int:gateway id="mdpInBoundGateway" service-interface="com.mpc.middleware.service.ChannelService">
+		<int:method name="sendMsg" request-channel="ist-outbound-channel" />
+	</int:gateway>
+		
+	<!-- Core Processor -->
+	<bean id="coreProcessor" class="com.mpc.middleware.processor.CoreProcessor" />
+	
+	<int:service-activator id="coreToIstProcessor"
+		ref="coreProcessor" method="processCoreToIst" input-channel="core-inbound-channel"
+		output-channel="ist-outbound-channel" />
+		
+	<int:service-activator id="istToCoreProcessor"
+		ref="coreProcessor" method="processIstToCore" input-channel="ist-inbound-channel"
+		output-channel="core-outbound-channel" /> 
+	
+	<!-- Controller -->
+	<bean id="coreChannelService" class="com.mpc.pgateway.router.PaymentController">
+		<property name="sendChannel" ref="core-inbound-channel" />
+	</bean>
+
+	<!-- Monitor Connection-->
+	<bean id="MonitorService" class="com.mpc.middleware.service.impl.MonitorServiceImpl">
+		<property name="ist" ref="istMux" />
+		<property name="mdp" ref="mdpMux" />
+	</bean>
+	
+	<int:poller default="true" fixed-rate="100" max-messages-per-poll="50" 
+		task-executor="executor" /> <task:executor id="executor" pool-size="20" />
+		
+	<!-- REST Services 
+	<bean id="restService" class="com.mpc.middleware.service.RestService" >
+		<property name="path" value="${gateway.url.rest}"/>			
+	</bean> -->
+</beans>
